@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact</title>
+
+<link rel="stylesheet" href="./css/style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* -------- Background -------- */
+body {
+  background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.5)), 
+              url("./img/ssbg2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+/* -------- Slide-In Animation -------- */
+.slide-in {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideIn 0.8s ease forwards;
+}
+@keyframes slideIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------- SUCCESS POPUP -------- */
+#success-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #28a745;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 12px;
+  font-size: 16px;
+  display: none;
+  box-shadow: 0 0 15px rgba(0,255,0,0.6);
+  z-index: 9999;
+}
+
+/* -------- Floating WhatsApp Icon -------- */
+#float-wa {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  transition: 0.3s;
+  z-index: 9999;
+}
+#float-wa:hover {
+  transform: scale(1.15);
+}
+
+/* -------- Input Styling -------- */
+.contact-box input,
+.contact-box textarea {
+  background: white;
+  border-radius: 10px;
+  padding: 12px;
+  border: none;
+  font-size: 16px;
+  width: 100%;
+}
+
+.contact-box input:focus,
+.contact-box textarea:focus {
+  outline: none;
+  box-shadow: 0 0 10px #ff5656;
+}
+
+.contact-btn {
+  background: red;
+  color: white;
+  padding: 8px 25px;
+  border: none;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+.contact-btn:hover {
+  background: #00ff00;
+  color: black;
+  box-shadow: 0 0 10px white;
+}
+
+/* =============================
+   RESPONSIVE CONTACT PAGE FIXES
+============================= */
+
+/* Image default style fix */
+.img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* For large screens - OK already */
+
+/* Tablets (Below 992px) */
+@media (max-width: 992px) {
+  .img {
+    width: 100%;
+    height: auto;
+  }
+
+  .contact-box {
+    margin-top: 30px;
+  }
+}
+
+/* Mobile (Below 768px) */
+@media (max-width: 768px) {
+
+  section {
+    padding: 20px !important;
+  }
+
+  /* Stack image on top */
+  .row {
+    text-align: center;
+  }
+
+  .img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .contact-box input,
+  .contact-box textarea {
+    width: 100% !important;
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .contact-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+}
+
+/* Extra Small Phones (Below 576px) */
+@media (max-width: 576px) {
+
+  h1 {
+    font-size: 28px !important;
+  }
+
+  .img {
+    height: auto !important;
+    width: 100%;
+  }
+
+  .contact-box {
+    padding: 10px;
+  }
+
+  .contact-btn {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg custom-nav sticky-top py-1">
+  <div class="container-fluid">
+    <a class="navbar-brand"><h1>SS Styles</h1></a>
+
+    <button class="navbar-toggler portfolio-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="bar top-bar"></span>
+      <span class="bar middle-bar"></span>
+      <span class="bar bottom-bar"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mx-2">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="product.html">Product</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Fashion</a>
+          <ul class="dropdown-menu bg-dark">
+            <li><a class="dropdown-item" href="kids.html">Kids</a></li>
+            <li><a class="dropdown-item" href="men.html">Men</a></li>
+            <li><a class="dropdown-item" href="women.html">Women</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Accessory</a>
+          <ul class="dropdown-menu bg-dark">
+            <li><a class="dropdown-item" href="mens_a.html">Men</a></li>
+            <li><a class="dropdown-item" href="women_a.html">Women</a></li>
+            <li><a class="dropdown-item disabled" href="elect.html">Electronic</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3 disabled" aria-disabled="true">Gifts</a>
+        </li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- CONTACT SECTION -->
+<section class="slide-in py-5">
+  <h1 class="text-center text-white mb-5">CONTACT US</h1>
+
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+
+      <!-- Left Image -->
+      <div class="col-md-6">
+        <img class="img" src="./img/bg3.jpg" class="img-fluid rounded shadow-lg">
+      </div>
+
+      <!-- Right Form -->
+      <div class="col-md-6 contact-box">
+
+        <input type="text" id="name" placeholder="Enter Your Name" class="mb-3">
+        <input type="email" id="email" placeholder="Enter Your Email" class="mb-3">
+        <textarea id="message" placeholder="Enter Your Message" rows="6" class="mb-3"></textarea>
+
+        <button class="contact-btn" id="send-btn">Send</button>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SUCCESS POPUP -->
+<div id="success-popup">Message Sent Successfully!</div>
+
+<!-- Floating WhatsApp -->
+<div id="float-wa"><i class="fa-brands fa-whatsapp"></i></div>
+
+<!-- ====== FOOTER SECTION ====== -->
+<footer class="footer bg-dark text-white pt-5 pb-3">
+  <div class="container">
+    <div class="row">
+      
+      <!-- About Section -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <h4 class="fw-bold mb-3">SS Styles</h4>
+        <p>SS Styles brings you the latest trends in fashion, accessories, and lifestyle — crafted to make you look and feel your best every day.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-lg-4 col-md-6 mb-4 text-center">
+        <h4 class="fw-bold mb-3">Quick Links</h4>
+        <ul class="list-unstyled text-center">
+          <li><a href="#home" class="text-white text-decoration-none d-block mb-2">Home</a></li>
+          <li><a href="#about" class="text-white text-decoration-none d-block mb-2">About</a></li>
+          <li><a href="#prodect" class="text-white text-decoration-none d-block mb-2">Products</a></li>
+          <li><a href="contact.html" class="text-white text-decoration-none d-block mb-2">Contact</a></li>
+          <li><a href="#" class="text-white text-decoration-none d-block mb-2">Gifts</a></li>
+        </ul>
+      </div>
+
+     <!-- Contact Info -->
+<div class="col-lg-4 col-md-12 mb-4 text-center">
+  <h4 class="fw-bold mb-3">Contact Us</h4>
+  <p><i class="fa-solid fa-location-dot me-2"></i>Chennai, India</p>
+  <p><i class="fa-solid fa-phone me-2"></i>+91 98765 43210</p>
+  <p><i class="fa-solid fa-envelope me-2"></i>support@ssstyles.com</p>
+  
+  <!-- Centered social buttons -->
+  <div class="mt-3 d-flex justify-content-center">
+    <a href="#" class="text-white fs-4 mx-2"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="#" class="text-white fs-4 mx-2"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="#" class="text-white fs-4 mx-2"><i class="fa-brands fa-github"></i></a>
+    <a href="#" class="text-white fs-4 mx-2"><i class="fa-solid fa-envelope"></i></a>
+  </div>
+</div>
+
+    <!-- Copyright -->
+    <hr class="border-secondary">
+    <div class="text-center">
+      <p class="mb-0">© 2025 <span class="fw-bold">SS Styles</span>. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</html>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const phone = "917449292910";
+
+  // FLOAT BUTTON CLICK
+  document.getElementById("float-wa").onclick = () => {
+    window.open("https://wa.me/" + phone, "_blank");
+  };
+
+  // SEND MESSAGE FUNCTION
+  document.getElementById("send-btn").onclick = function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const msg = document.getElementById("message").value.trim();
+
+    if (!name || !email || !msg) {
+      alert("Please fill all fields!");
+      return;
+    }
+
+    const text =
+      `👤 Name: ${name}%0A` +
+      `📧 Email: ${email}%0A` +
+      `💬 Message: ${msg}`;
+
+    window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
+
+    // SUCCESS POPUP
+    const popup = document.getElementById("success-popup");
+    popup.style.display = "block";
+    setTimeout(() => popup.style.display = "none", 2500);
+
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("message").value = "";
+  };
+
+});
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
